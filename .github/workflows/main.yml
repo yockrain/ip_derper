@@ -1,0 +1,26 @@
+name: Release
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: sudosubin/git-clone-action@v1.0.1
+        with:
+          repository: 'tailscale/tailscale-android'
+          platform: 'github'
+          ref: 'main'
+
+      - name: modify
+        run: |
+          sed -i '/hi.ServerName != m.hostname/,+2d' cmd/derper/cert.go
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
