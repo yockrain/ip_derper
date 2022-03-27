@@ -13,7 +13,7 @@ name: Build and push ip_derper Docker image
 on:
   push:
     branches:
-      - dev
+      - ip_derper
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
