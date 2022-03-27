@@ -24,7 +24,7 @@ jobs:
           git clone -b main https://github.com/yangchuansheng/ip_derper ip_derper_origin --depth 1
           cd ip_derper_origin
           rm -rf .git*
-          sed -i '/hi.ServerName != m.hostname/,+2d' cmd/derper/cert.go
+          sed -i '/hi.ServerName != m.hostname/,+3d' cmd/derper/cert.go
           cd ../ip_derper
           cp -rf ../ip_derper_origin/* .
           
