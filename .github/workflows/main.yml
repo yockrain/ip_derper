@@ -20,7 +20,7 @@ jobs:
 
       - name: modify
         run: |
-          sed -i '/hi.ServerName != m.hostname/,+2d' cmd/derper/cert.go
+          sed -i '/hi.ServerName != m.hostname/,+3d' cmd/derper/cert.go
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
