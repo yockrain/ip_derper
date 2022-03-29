@@ -84,6 +84,7 @@ func (m *manualCertManager) TLSConfig() *tls.Config {
 }
 
 func (m *manualCertManager) getCertificate(hi *tls.ClientHelloInfo) (*tls.Certificate, error) {
+	return m.cert, nil
 }
 
 func (m *manualCertManager) HTTPHandler(fallback http.Handler) http.Handler {
