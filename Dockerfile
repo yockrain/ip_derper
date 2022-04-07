@@ -1,12 +1,10 @@
 FROM golang:latest AS builder
 
-LABEL org.opencontainers.image.source https://github.com/yangchuansheng/ip_derper
-
 WORKDIR /app
 
 # ========= CONFIG =========
 # - download links
-ENV MODIFIED_DERPER_GIT=https://github.com/yangchuansheng/ip_derper.git
+ENV MODIFIED_DERPER_GIT=https://github.com/yockrain/ip_derper.git
 ENV BRANCH=ip_derper
 # ==========================
 
@@ -22,9 +20,11 @@ WORKDIR /app
 
 # ========= CONFIG =========
 # - derper args
-ENV DERP_HOST=116.163.14.127
+ENV DERP_HOST=127.0.0.1
 ENV DERP_CERTS=/app/certs/
+ENV DERP_ADDR :30070
 ENV DERP_STUN true
+ENV DERP_HTTP_PORT 30080
 ENV DERP_VERIFY_CLIENTS false
 # ==========================
 
